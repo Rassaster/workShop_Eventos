@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const DB_PATH = "mysql://root:happy@localhost:3306/exercise_albums"
+const DB_PATH = "mysql://root:happy@localhost:3306/workshop"
 const sequelize = new Sequelize(DB_PATH, {operatorsAliases: false});
 
 sequelize.authenticate()
