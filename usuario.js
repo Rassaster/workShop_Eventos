@@ -1,11 +1,18 @@
 const sequelize = require("./connectionDB");
 
 
-const verificarUsuario = (username, password) => {
-  sequelize.query("SELECT * FROM personas WHERE username = ? and password = ?", {
-    replacement: [username, password],
+const verificarUsuario = async (username, password) => {
+  sequelize.query("SELECT * FROM personas WHERE NOMBRE_USUARIO = ? and PASSWORD = ?", {
+    replacements  : [username, password],
     type: sequelize.QueryTypes.SELECT
+  })
+  .then(data => {
+    console.table(data);
+    return data;
+  })
+  .catch(err => {
+    console.log("Ha ocurrido un error: ", err);
   })
 };
 
-module.export = { verificarUsuario };
+module.exports = { verificarUsuario };

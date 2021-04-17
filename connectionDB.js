@@ -9,9 +9,9 @@ sequelize.authenticate()
   .catch(err => {
     console.err("Ha habido un error de conexión con la Base de Datos: ", err);
   })
-  .finally(()=>{
-    sequelize.close();
-  });
+  // .finally(()=>{
+  //   sequelize.close();
+  // });
 
 
 module.exports = sequelize;
