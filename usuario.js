@@ -7,8 +7,14 @@ const verificarUsuario = async (username, password) => {
     type: sequelize.QueryTypes.SELECT
   })
   .then(data => {
-    console.table(data);
-    return data;
+    if (data.length === 0) {
+      console.log("El usuario no existe.");
+      return false;
+    }
+    else {
+      console.log("Usuario verificado correctamente");
+      return true;
+    }
   })
   .catch(err => {
     console.log("Ha ocurrido un error: ", err);

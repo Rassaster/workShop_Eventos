@@ -16,7 +16,16 @@ app.use(expressJWT (
 app.post("/usuarios/login", (req, res) => {
   const { NOMBRE_USUARIO, PASSWORD } = req.body;
   console.log(NOMBRE_USUARIO, PASSWORD);
-  verificarUsuario(NOMBRE_USUARIO, PASSWORD);
+  let verificacion = verificarUsuario(NOMBRE_USUARIO, 2);
+  if (verificacion === false) {
+    let msg = "El usuario no existe.";
+    console.log(msg);
+    res.send(msg);
+  }
+  else {
+    let msg = "Usuario verificado con éxito.";
+    console.log(msg);
+    res.send(msg);  }
 })
 
 app.listen(PUERTO, () => {
