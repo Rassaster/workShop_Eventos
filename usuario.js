@@ -3,7 +3,7 @@ const sequelize = require("./connectionDB");
 
 const verificarUsuario = async (username, password) => {
   sequelize.query("SELECT * FROM personas WHERE NOMBRE_USUARIO = ? and PASSWORD = ?", {
-    replacements  : [username, password],
+    replacements: [username, password],
     type: sequelize.QueryTypes.SELECT
   })
   .then(data => {
