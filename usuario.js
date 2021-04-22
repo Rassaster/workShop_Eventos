@@ -8,11 +8,9 @@ const verificarUsuario = async (username, password) => {
   })
   .then(data => {
     if (data.length === 0) {
-      console.log("El usuario no existe.");
       return false;
     }
     else {
-      console.log("Usuario verificado correctamente");
       return true;
     }
   })
